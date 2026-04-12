@@ -1,197 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>FieldOpt — Field Service Dispatch, Reimagined</title>
-	<meta name="description" content="Open-source field service management. Enterprise dispatch console for telecom and field service operations. Built by dispatchers, for dispatchers.">
-	<meta property="og:title" content="FieldOpt — Field Service Dispatch, Reimagined">
-	<meta property="og:description" content="Enterprise dispatch console for telecom and field service operations. Skill-based routing, management areas, real-time assignment.">
-	<meta property="og:type" content="website">
-
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-	<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.png">
-	<link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#5bbad5">
-
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css">
+	<meta name="description" content="Open-source field service management dispatch console for telecom. Real-time job assignment, skill-based routing, ML-assisted dispatch. Built by someone who does the work.">
+	<meta name="og:title" content="FieldOpt - Modern Dispatch Console">
+	<meta name="og:description" content="Open-source FSM console. Real-time routing, skill-based assignment, ML-powered dispatch.">
+	<meta name="og:image" content="https://fieldopt.dev/assets/dashboard.png">
+	
+	<title>FieldOpt - Modern Dispatch Console</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+	<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png">
+	<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+	<meta name="theme-color" content="#4a9eff">
 </head>
 <body>
 
-<!-- Nav -->
-<nav>
-	<div class="nav-inner">
-		<a href="#" class="nav-brand"><div class="nav-brand-icon"></div>FieldOpt</a>
-		<div class="nav-links">
-			<a href="#features">Features</a>
-			<a href="#demo">Demo</a>
-			<a href="#pricing">Pricing</a>
-			<a href="https://github.com/zblauser/fieldopt" target="_blank">GitHub</a>
-		</div>
-		<a href="https://demo.fieldopt.dev" class="nav-cta btn">Try Demo</a>
-	</div>
-</nav>
-
-<!-- Hero -->
-<section class="hero">
-	<div class="container">
-		<div class="hero-tag">Open Source &middot; AGPL-3.0</div>
-		<h1>Field Service Dispatch,<br><span>Reimagined</span></h1>
-		<p class="hero-sub">
-			An enterprise dispatch console built by a technician who got tired of the tools that don't work.
-			Skill-based routing, management areas, real-time assignment &mdash; the way dispatch should be.
-		</p>
-		<div class="hero-actions">
-			<a href="#demo" class="btn btn-primary">Try the Demo</a>
-			<a href="https://github.com/zblauser/fieldopt" target="_blank" class="btn btn-outline">
-				<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-				GitHub
+	<!-- Header -->
+	<header class="header">
+		<nav class="nav">
+			<a href="/" class="logo">
+				<svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+					<defs>
+						<linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+							<stop offset="0%" style="stop-color:#4a9eff;stop-opacity:1" />
+							<stop offset="100%" style="stop-color:#2d6fb5;stop-opacity:1" />
+						</linearGradient>
+					</defs>
+					<rect width="100" height="100" fill="url(#logo-grad)" rx="20"/>
+					<text x="50" y="70" font-size="60" font-weight="800" text-anchor="middle" fill="white" font-family="system-ui">F</text>
+				</svg>
+				FieldOpt
 			</a>
-		</div>
-	</div>
+			<ul class="nav-links">
+				<li><a href="#features">Features</a></li>
+				<li><a href="#demo">Demo</a></li>
+				<li><a href="#pricing">Pricing</a></li>
+				<li><a href="https://github.com/FieldOpt/FieldOpt" class="nav-github" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a></li>
+			</ul>
+		</nav>
+	</header>
 
-	<div class="screenshot-wrap container" style="margin-top:60px">
-		<img src="assets/dashboard.png" alt="FieldOpt Dispatch Console">
-		<div class="screenshot-glow"></div>
-	</div>
-</section>
+	<!-- Hero -->
+	<section class="hero">
+		<div class="container">
+			<h1>Modern Dispatch Built by Someone Who Does the Work</h1>
+			<p>Open-source field service management console. Real-time routing, skill-based assignment, ML-powered dispatch.</p>
+			<div class="cta-buttons">
+				<a href="https://demo.fieldopt.dev" class="btn btn-primary" target="_blank">See Live Demo</a>
+				<a href="https://github.com/FieldOpt/FieldOpt" class="btn btn-secondary" target="_blank">View on GitHub</a>
+			</div>
+		</div>
+	</section>
 
-<!-- Features -->
-<section class="features" id="features">
-	<div class="container">
-		<h2>Built for Real Dispatch</h2>
-		<p class="features-sub">Not another startup dashboard. An actual dispatch console designed by someone who works in the field.</p>
-		<div class="features-grid">
-			<div class="feature-card">
-				<div class="feature-icon feature-icon--blue">&#9881;</div>
-				<h3>Intelligent Routing</h3>
-				<p>Auto-route evaluates skill, route zone, shift time, and distance to find the best tech for every job. Override warnings keep dispatchers in control.</p>
-			</div>
-			<div class="feature-card">
-				<div class="feature-icon feature-icon--green">&#9878;</div>
-				<h3>Management Areas</h3>
-				<p>Techs are assigned geographic zones. Jobs carry route criteria. The system knows when a job is out of zone and warns before assignment.</p>
-			</div>
-			<div class="feature-card">
-				<div class="feature-icon feature-icon--yellow">&#9733;</div>
-				<h3>Drag &amp; Drop Dispatch</h3>
-				<p>Drag jobs onto techs. Multi-select with Cmd+click. Batch assign, batch unassign. Right-click context menus with skill-filtered tech lists.</p>
-			</div>
-			<div class="feature-card">
-				<div class="feature-icon feature-icon--purple">&#128200;</div>
-				<h3>Tech Timeline</h3>
-				<p>Visual hour-block timeline shows each tech's day at a glance. Overlapping jobs stack. Gaps are visible. Select multiple techs to compare.</p>
-			</div>
-			<div class="feature-card">
-				<div class="feature-icon feature-icon--red">&#128269;</div>
-				<h3>Job Search &amp; Filters</h3>
-				<p>Search historical, current, and future jobs by any criteria. Display filters slice by time slot, job type, route, and tech. Drag results into the grid.</p>
-			</div>
-			<div class="feature-card">
-				<div class="feature-icon feature-icon--gray">&#127758;</div>
-				<h3>Multi-Monitor Map</h3>
-				<p>Map detaches to its own window for multi-monitor dispatch setups. Live data sync keeps markers current as assignments change.</p>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- Demo -->
-<section class="demo" id="demo">
-	<div class="container">
-	<h2>See It Live</h2>
-	<p class="demo-sub">The full dispatch console running live. Assign jobs, search techs, open the map.</p>
-	<div class="demo-frame">
-		<div class="demo-toolbar">
-			<div class="demo-dot"></div>
-			<div class="demo-dot"></div>
-			<div class="demo-dot"></div>
-			<div class="demo-url">https://demo.fieldopt.dev</div>
-		</div>
-		<div class="demo-iframe-wrap">
-			<iframe src="https://demo.fieldopt.dev" loading="lazy" title="FieldOpt Live Demo"></iframe>
-		</div>
-	</div>
-				<!--
-				<div class="demo-placeholder">
-					<p>Live demo launching soon.</p>
-					<a href="https://github.com/zblauser/fieldopt" target="_blank" class="btn btn-outline">Clone &amp; Run Locally</a>
+	<!-- Problem Section -->
+	<section class="section problem-section">
+		<div class="container">
+			<h2>Modern Dispatch, Modern Challenges</h2>
+			<p class="section-intro">Field service management has evolved. Your tools should too.</p>
+			<div class="grid-3">
+				<div class="card problem-card">
+					<h3>⚡ Speed Matters</h3>
+					<p>Dispatch decisions need to happen in seconds, not minutes. Every delay costs time and money in the field.</p>
 				</div>
-				-->
+				<div class="card problem-card">
+					<h3>🎯 Right Person, Right Job</h3>
+					<p>Matching techs to jobs based on actual skill, not guesswork. Reduce failures. Improve first-time fix rates.</p>
+				</div>
+				<div class="card problem-card">
+					<h3>📊 Data-Driven Decisions</h3>
+					<p>Routing should improve over time as you learn what works. Real-time visibility into what's happening in the field.</p>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<!-- Pricing -->
-<section class="pricing" id="pricing">
-	<div class="container">
-		<h2>Simple, Scalable Pricing</h2>
-		<p class="pricing-sub">Start free. Scale when you're ready. Enterprise terms for large deployments.</p>
-		<div class="pricing-grid">
-			<div class="pricing-card">
-				<div class="pricing-tier">Community</div>
-				<div class="pricing-price">Free</div>
-				<div class="pricing-desc">Self-hosted, open source under AGPL-3.0.</div>
-				<ul class="pricing-features">
-					<li>Full dispatch console</li>
-					<li>Unlimited techs &amp; jobs</li>
-					<li>Auto-routing engine</li>
-					<li>Community support</li>
-				</ul>
-				<a href="https://github.com/zblauser/fieldopt" target="_blank" class="pricing-btn pricing-btn--outline">Get Started</a>
-			</div>
-			<div class="pricing-card pricing-card--featured">
-				<div class="pricing-tier">Pro</div>
-				<div class="pricing-price">Coming Soon</div>
-				<div class="pricing-desc">Hosted deployment with advanced features.</div>
-				<ul class="pricing-features">
-					<li>Everything in Community</li>
-					<li>ML-assisted dispatch</li>
-					<li>Role-based access control</li>
-					<li>Priority support</li>
-				</ul>
-				<a href="mailto:fieldopt@proton.me" class="pricing-btn pricing-btn--primary">Get Notified</a>
-			</div>
-			<div class="pricing-card">
-				<div class="pricing-tier">Enterprise</div>
-				<div class="pricing-price">Contact Us</div>
-				<div class="pricing-desc">Custom deployment, integration, and support.</div>
-				<ul class="pricing-features">
-					<li>Everything in Pro</li>
-					<li>Commercial license</li>
-					<li>Custom integrations</li>
-					<li>Dedicated support &amp; SLA</li>
-				</ul>
-				<a href="mailto:fieldopt@proton.me" class="pricing-btn pricing-btn--outline">Contact Sales</a>
+	<!-- Image Break: Field Tech -->
+	<section class="image-break">
+		<div class="image-container">
+			<img src="assets/a2.jpg" alt="Technician at work" class="accent-image">
+			<div class="image-overlay"></div>
+		</div>
+	</section>
+
+	<!-- Solution Section -->
+	<section class="section solution-section" id="features">
+		<div class="container">
+			<h2>What FieldOpt Does</h2>
+			<p class="section-intro">Real-time dispatch. Smart routing. Built for the field.</p>
+			<div class="grid-3">
+				<div class="card feature-card">
+					<h3>🔄 Drag-Drop Assignment</h3>
+					<p>Assign jobs to technicians in seconds. No complex navigation. Just click and drag.</p>
+				</div>
+				<div class="card feature-card">
+					<h3>👁️ Real-Time Visibility</h3>
+					<p>See technician workload, capacity, and timeline across the day. Know what's happening right now.</p>
+				</div>
+				<div class="card feature-card">
+					<h3>✓ Skill-Based Routing</h3>
+					<p>Match jobs to techs who are actually good at them. Reduce failures. Improve quality.</p>
+				</div>
+				<div class="card feature-card">
+					<h3>🗺️ Geographic Awareness</h3>
+					<p>Interactive map shows job locations and routing context. Optimize by location and distance.</p>
+				</div>
+				<div class="card feature-card">
+					<h3>🔍 Advanced Search</h3>
+					<p>Find the right tech or job in seconds. Filter by skill, location, availability, capacity.</p>
+				</div>
+				<div class="card feature-card">
+					<h3>📊 Batch Operations</h3>
+					<p>Select 5 jobs, assign to 1 tech. Bulk reassign. Bulk status changes. All at once.</p>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<!-- Built By -->
-<section class="built-by">
-	<div class="container">
-		<h2>Built in the Field</h2>
-		<p>
-			FieldOpt is built by a network technician and dispatcher who understands what the field actually needs.
-			Not a startup guessing at workflows &mdash; real domain expertise turned into software.
-		</p>
-		<div class="built-by-links">
-			<a href="https://github.com/zblauser/fieldopt" target="_blank" class="btn btn-primary">View on GitHub</a>
-			<a href="https://github.com/zblauser/fieldopt/issues" target="_blank" class="btn btn-outline">Report an Issue</a>
+	<!-- Image Break: Dispatch Center -->
+	<section class="image-break image-break-right">
+		<div class="image-container">
+			<img src="assets/a1.jpg" alt="Dispatch center operations" class="accent-image">
+			<div class="image-overlay"></div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<!-- Footer -->
-<footer>
-	<div class="container">
-		&copy; 2026 FieldOpt &middot; Built by <a href="https://github.com/zblauser" target="_blank">zblauser</a> &middot; <a href="https://github.com/zblauser/fieldopt" target="_blank">Source</a>
-	</div>
-</footer>
+	<!-- Demo Section -->
+	<section class="section demo-section" id="demo">
+		<div class="container">
+			<h2>See It Live</h2>
+			<p class="section-intro">The full dispatch console running 24/7.</p>
+			<div class="demo-wrapper">
+				<div class="browser-frame">
+					<div class="browser-header">
+						<div class="dot red"></div>
+						<div class="dot yellow"></div>
+						<div class="dot green"></div>
+						<span class="browser-url">demo.fieldopt.dev</span>
+					</div>
+					<svg class="dashboard-mockup" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+						<!-- Background -->
+						<rect width="1200" height="700" fill="#0f0f1e"/>
+						
+						<!-- Header -->
+						<rect width="1200" height="50" fill="#1a1a2e"/>
+						<circle cx="30" cy="25" r="5" fill="#ff6b6b"/>
+						<circle cx="50" cy="25" r="5" fill="#ffd93d"/>
+						<circle cx="70" cy="25" r="5" fill="#6bcf7f"/>
+						<text x="600" y="35" font-size="14" fill="#4a9eff" text-anchor="middle" font-weight="600">FieldOpt Dispatch Console</text>
+						
+						<!-- Left: Tech Grid -->
+						<rect x="20" y="70" width="280" height="600" fill="#16213e" rx="8"/>
+						<text x="30" y="95" font-size="12" font-weight="600" fill="#fff">Technicians</text>
+						
+						<!-- Tech rows -->
+						<rect x="30" y="110" width="260" height="25" fill="#4a9eff" rx="4"/>
+						<text x="40" y="130" font-size="11" fill="#fff">Miles Davis • Available</text>
+						
+						<rect x="30" y="145" width="260" height="25" fill="#4a9eff" rx="4"/>
+						<text x="40" y="165" font-size="11" fill="#fff">Chet Baker • On Break</text>
+						
+						<rect x="30" y="180" width="260" height="25" fill="#2d6fb5" rx="4"/>
+						<text x="40" y="200" font-size="11" fill="#fff">John Coltrane • Assigned</text>
+						
+						<rect x="30" y="215" width="260" height="25" fill="#4a9eff" rx="4"/>
+						<text x="40" y="235" font-size="11" fill="#fff">Thelonious Monk • Available</text>
+						
+						<!-- Right: Job Grid -->
+						<rect x="320" y="70" width="560" height="320" fill="#16213e" rx="8"/>
+						<text x="330" y="95" font-size="12" font-weight="600" fill="#fff">Jobs to Assign</text>
+						
+						<!-- Job rows -->
+						<rect x="330" y="110" width="540" height="25" fill="#ff6b6b" opacity="0.2" rx="4"/>
+						<text x="340" y="130" font-size="11" fill="#ff6b6b">Blue Note • Install • Pending</text>
+						
+						<rect x="330" y="145" width="540" height="25" fill="#e5a834" opacity="0.2" rx="4"/>
+						<text x="340" y="165" font-size="11" fill="#e5a834">Village Vanguard • Repair • High</text>
+						
+						<rect x="330" y="180" width="540" height="25" fill="#4caf6a" opacity="0.2" rx="4"/>
+						<text x="340" y="200" font-size="11" fill="#4caf6a">Apollo Theater • Maintenance • Low</text>
+						
+						<rect x="330" y="215" width="540" height="25" fill="#ff6b6b" opacity="0.2" rx="4"/>
+						<text x="340" y="235" font-size="11" fill="#ff6b6b">Carnegie Hall • Inspection • Urgent</text>
+						
+						<!-- Bottom: Map Preview -->
+						<rect x="320" y="410" width="560" height="260" fill="#16213e" rx="8"/>
+						<text x="330" y="435" font-size="12" font-weight="600" fill="#fff">Map & Timeline</text>
+						
+						<!-- Simple map visualization -->
+						<circle cx="450" cy="550" r="30" fill="#4a9eff" opacity="0.5"/>
+						<circle cx="650" cy="480" r="30" fill="#2d6fb5" opacity="0.5"/>
+						<circle cx="550" cy="600" r="30" fill="#4a9eff" opacity="0.5"/>
+						<text x="450" y="560" font-size="10" fill="#fff" text-anchor="middle">Job 1</text>
+						<text x="650" y="490" font-size="10" fill="#fff" text-anchor="middle">Job 2</text>
+						<text x="550" y="610" font-size="10" fill="#fff" text-anchor="middle">Job 3</text>
+						
+						<!-- Right sidebar: Timeline -->
+						<rect x="900" y="70" width="280" height="600" fill="#16213e" rx="8"/>
+						<text x="910" y="95" font-size="12" font-weight="600" fill="#fff">Timeline</text>
+						
+						<!-- Timeline bars -->
+						<rect x="920" y="120" width="240" height="20" fill="#4a9eff" rx="3"/>
+						<text x="925" y="135" font-size="10" fill="#fff">Miles Davis</text>
+						
+						<rect x="920" y="155" width="240" height="20" fill="#2d6fb5" rx="3"/>
+						<text x="925" y="170" font-size="10" fill="#fff">Chet Baker</text>
+						
+						<rect x="920" y="190" width="240" height="20" fill="#4a9eff" rx="3"/>
+						<text x="925" y="205" font-size="10" fill="#fff">John Coltrane</text>
+						
+						<!-- Feature callouts -->
+						<text x="910" y="280" font-size="10" fill="#4caf6a" font-weight="600">✓ Drag-drop</text>
+						<text x="910" y="300" font-size="10" fill="#4caf6a">✓ Real-time</text>
+						<text x="910" y="320" font-size="10" fill="#4caf6a">✓ Skill-based</text>
+						<text x="910" y="340" font-size="10" fill="#4caf6a">✓ Geographic</text>
+					</svg>
+				</div>
+				<a href="https://demo.fieldopt.dev" class="btn btn-primary btn-large" target="_blank">Launch Live Demo</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Moat Section -->
+	<section class="section moat-section">
+		<div class="container">
+			<h2>The Real Advantage: Data Flywheel</h2>
+			<div class="moat-content">
+				<div class="moat-text">
+					<p>Every dispatch creates data. Over time, FieldOpt learns which technicians excel at which job types, how long things actually take, what factors predict success.</p>
+					<p>That becomes a <strong>proprietary ML model</strong> trained on YOUR company's actual dispatch history.</p>
+					<p style="font-size: 1.1rem; color: #4a9eff; font-weight: 600; margin-top: 1.5rem;">The more you use FieldOpt, the smarter it gets.</p>
+				</div>
+				<svg class="moat-diagram" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+					<!-- Flywheel circle -->
+					<defs>
+						<marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+							<path d="M0,0 L0,6 L9,3 z" fill="#4a9eff" />
+						</marker>
+					</defs>
+					
+					<!-- Background -->
+					<rect width="400" height="300" fill="#f9f9fa" rx="16"/>
+					
+					<!-- Center circle -->
+					<circle cx="200" cy="150" r="80" fill="#4a9eff" opacity="0.1" stroke="#4a9eff" stroke-width="2"/>
+					
+					<!-- Stages -->
+					<!-- Data -->
+					<circle cx="280" cy="100" r="35" fill="#4a9eff"/>
+					<text x="280" y="110" font-size="14" fill="#fff" text-anchor="middle" font-weight="600">📊</text>
+					<text x="280" y="145" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="600">Dispatch</text>
+					<text x="280" y="160" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="600">Data</text>
+					
+					<!-- ML Model -->
+					<circle cx="200" cy="230" r="35" fill="#2d6fb5"/>
+					<text x="200" y="240" font-size="14" fill="#fff" text-anchor="middle" font-weight="600">🧠</text>
+					<text x="200" y="275" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="600">ML Model</text>
+					
+					<!-- Better Routing -->
+					<circle cx="120" cy="100" r="35" fill="#4caf6a"/>
+					<text x="120" y="110" font-size="14" fill="#fff" text-anchor="middle" font-weight="600">🚀</text>
+					<text x="120" y="145" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="600">Better</text>
+					<text x="120" y="160" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="600">Routing</text>
+					
+					<!-- Arrows -->
+					<path d="M 250 120 Q 240 140 220 170" stroke="#4a9eff" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+					<path d="M 150 220 Q 130 200 110 160" stroke="#4a9eff" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+					<path d="M 150 80 Q 170 70 240 85" stroke="#4a9eff" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+					
+					<!-- Center text -->
+					<text x="200" y="155" font-size="14" fill="#4a9eff" text-anchor="middle" font-weight="700">Flywheel</text>
+				</svg>
+			</div>
+		</div>
+	</section>
+
+	<!-- Pricing Section -->
+	<section class="section pricing-section" id="pricing">
+		<div class="container">
+			<h2>Simple, Transparent Pricing</h2>
+			<p class="section-intro">Pay for what you use. Scale as you grow.</p>
+			<div class="grid-pricing">
+				<div class="card pricing-card">
+					<h3>Community</h3>
+					<div class="price">Free</div>
+					<ul>
+						<li>✓ Up to 25 technicians</li>
+						<li>✓ Self-hosted</li>
+						<li>✓ Full features</li>
+						<li>✓ AGPL-3.0 licensed</li>
+						<li>✓ GitHub community</li>
+					</ul>
+					<a href="https://github.com/FieldOpt/FieldOpt" class="btn btn-secondary" target="_blank">Get Started</a>
+				</div>
+				<div class="card pricing-card featured">
+					<div class="badge">Business</div>
+					<h3>Starter</h3>
+					<div class="price">$99<span>/month</span></div>
+					<ul>
+						<li>✓ Up to 50 technicians</li>
+						<li>✓ Managed cloud hosting</li>
+						<li>✓ Priority email support</li>
+						<li>✓ Custom branding</li>
+						<li>✓ API access</li>
+					</ul>
+					<a href="mailto:hello@fieldopt.dev" class="btn btn-primary">Contact Sales</a>
+				</div>
+				<div class="card pricing-card">
+					<h3>Pro</h3>
+					<div class="price">$399<span>/month</span></div>
+					<ul>
+						<li>✓ Up to 200 technicians</li>
+						<li>✓ Everything in Starter</li>
+						<li>✓ ML autodrip dispatch</li>
+						<li>✓ Custom integrations</li>
+						<li>✓ Dedicated support</li>
+					</ul>
+					<a href="mailto:hello@fieldopt.dev" class="btn btn-secondary">Contact Sales</a>
+				</div>
+				<div class="card pricing-card">
+					<h3>Enterprise</h3>
+					<div class="price">Custom</div>
+					<ul>
+						<li>✓ Unlimited technicians</li>
+						<li>✓ Everything in Pro</li>
+						<li>✓ On-premise deployment</li>
+						<li>✓ Custom development</li>
+						<li>✓ SLA guarantees</li>
+					</ul>
+					<a href="mailto:hello@fieldopt.dev" class="btn btn-secondary">Contact Us</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Final CTA -->
+	<section class="section final-cta">
+		<div class="container">
+			<h2>Ready to Modernize Dispatch?</h2>
+			<p>See the demo, read the code, or get in touch.</p>
+			<div class="cta-buttons">
+				<a href="https://demo.fieldopt.dev" class="btn btn-primary btn-large" target="_blank">Try Live Demo</a>
+				<a href="https://github.com/FieldOpt/FieldOpt" class="btn btn-secondary btn-large" target="_blank">View on GitHub</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<div class="footer-section">
+					<h4>Product</h4>
+					<ul>
+						<li><a href="https://demo.fieldopt.dev" target="_blank">Live Demo</a></li>
+						<li><a href="https://github.com/FieldOpt/FieldOpt" target="_blank">GitHub</a></li>
+						<li><a href="#pricing">Pricing</a></li>
+					</ul>
+				</div>
+				<div class="footer-section">
+					<h4>Resources</h4>
+					<ul>
+						<li><a href="https://github.com/FieldOpt/FieldOpt/wiki" target="_blank">Documentation</a></li>
+						<li><a href="https://github.com/FieldOpt/FieldOpt/issues" target="_blank">Support</a></li>
+						<li><a href="https://github.com/FieldOpt/FieldOpt/discussions" target="_blank">Community</a></li>
+					</ul>
+				</div>
+				<div class="footer-section">
+					<h4>Company</h4>
+					<ul>
+						<li><a href="mailto:hello@fieldopt.dev">Contact</a></li>
+						<li><a href="https://github.com/FieldOpt/FieldOpt/blob/main/LICENSE" target="_blank">License</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2026 FieldOpt. Built for the field, by the field. <a href="https://github.com/FieldOpt/FieldOpt/blob/main/LICENSE" target="_blank">AGPL-3.0 Licensed</a>.</p>
+			</div>
+		</div>
+	</footer>
 
 </body>
 </html>
